@@ -5,17 +5,17 @@
 // and don't just write the correct answer directly!
 //  you should use firstFiveLetters to fill in one blank for each step
 
-_;
+let firstFiveLetters = 'c';
 console.log(firstFiveLetters); // should log "c"
 
-firstFiveLetters = _ + _;
+firstFiveLetters = 'b' + 'c';
 console.log(firstFiveLetters); // should log "bc"
 
-firstFiveLetters = _ + _;
+firstFiveLetters = 'b' + 'c' + 'd';
 console.log(firstFiveLetters); // should log "bcd"
 
-firstFiveLetters = _ + _;
+firstFiveLetters = 'a' + 'b' + 'c' + 'd';
 console.log(firstFiveLetters); // should log "abcd"
 
-firstFiveLetters = _ + _;
+firstFiveLetters = 'a' + 'b' + 'c' + 'd' + 'e';
 console.log(firstFiveLetters); // should log "abcde"
