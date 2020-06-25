@@ -1,15 +1,15 @@
-# undefined 
+# Debuggercises 
 
-> 6/19/2020, 12:47:28 AM 
+> 6/24/2020, 5:04:07 PM 
 
 ## [exercises](../../README.md)/[03-comparing-and-asserting](../README.md)/examples 
 
 - [/1-strict-equality.js](#1-strict-equalityjs)  
-- [/2-extra-assignment-vs-comparison.js](#2-extra-assignment-vs-comparisonjs) - _error (syntax)_ 
+- [/2-assignment-vs-comparison.js](#2-assignment-vs-comparisonjs) - _error (syntax)_ 
 - [/3-console-assert.js](#3-console-assertjs) - _fail_ 
 - [/4-testing-with-assert.js](#4-testing-with-assertjs) - _pass_ 
-- [/extra-object-is.js](#extra-object-isjs)  
-- [/extra-strict-inequality.js](#extra-strict-inequalityjs)  
+- [/object-is.js](#object-isjs)  
+- [/strict-inequality.js](#strict-inequalityjs)  
 ---
 
 ## /1-strict-equality.js 
@@ -80,14 +80,14 @@ console.log(typeof huh, huh);
 
 ---
 
-## /2-extra-assignment-vs-comparison.js 
+## /2-assignment-vs-comparison.js 
 
 > error (syntax) 
 >
-> [review source](../../../exercises/03-comparing-and-asserting/examples/2-extra-assignment-vs-comparison.js)
+> [review source](../../../exercises/03-comparing-and-asserting/examples/2-assignment-vs-comparison.js)
 
 ```txt
-UNCAUGHT:   ...  /exercises/03-comparing-and-asserting/examples/2-extra-assignment-vs-comparison.js:29
+UNCAUGHT:   ...  /exercises/03-comparing-and-asserting/examples/2-assignment-vs-comparison.js:29
 'value 2' = variable; // uncomment this line for an error
 ^^^^^^^^^
 
@@ -242,11 +242,11 @@ console.assert(isTrue5, 'Assertion 5');
 
 ---
 
-## /extra-object-is.js 
+## /object-is.js 
 
 >  
 >
-> [review source](../../../exercises/03-comparing-and-asserting/examples/extra-object-is.js)
+> [review source](../../../exercises/03-comparing-and-asserting/examples/object-is.js)
 
 ```txt
 LOG: strictEqualityZeros:  boolean  
@@ -287,11 +287,11 @@ console.log('objectIsNaN:', typeof objectIsNaN, '\n', objectIsNaN);
 
 ---
 
-## /extra-strict-inequality.js 
+## /strict-inequality.js 
 
 >  
 >
-> [review source](../../../exercises/03-comparing-and-asserting/examples/extra-strict-inequality.js)
+> [review source](../../../exercises/03-comparing-and-asserting/examples/strict-inequality.js)
 
 ```txt
 LOG: -- false comparisons --

@@ -1,6 +1,6 @@
-# undefined 
+# Debuggercises 
 
-> 6/19/2020, 12:47:28 AM 
+> 6/24/2020, 5:04:07 PM 
 
 ## [exercises](../../README.md)/[05-functions-101](../README.md)/2-local-param-global 
 
@@ -8,10 +8,10 @@
 - [/1-parameter-local.js](#1-parameter-localjs) - _incomplete_ 
 - [/2-parameter-global.js](#2-parameter-globaljs) - _incomplete_ 
 - [/3-parameter-global.js](#3-parameter-globaljs) - _incomplete_ 
+- [/4-local-global.js](#4-local-globaljs) - _incomplete_ 
 - [/5-local-global.js](#5-local-globaljs) - _incomplete_ 
-- [/6-local-global.js](#6-local-globaljs) - _incomplete_ 
-- [/7-parameter-local-global.js](#7-parameter-local-globaljs) - _incomplete_ 
-- [/8-prameter-local-global.js](#8-prameter-local-globaljs) - _incomplete_ 
+- [/6-parameter-local-global.js](#6-parameter-local-globaljs) - _incomplete_ 
+- [/7-prameter-local-global.js](#7-prameter-local-globaljs) - _incomplete_ 
 - [/extra-pure-functions.js](#extra-pure-functionsjs)  
 ---
 
@@ -32,19 +32,19 @@ LOG: fromLocals1:  town, ship
 LOG: fromLocals2:  town, ship
 LOG: 
 -- Global Variables ---
-LOG: fromGlobals1:  [object global]-, -
-LOG: global1:  [object global]-
+LOG: fromGlobals1:  a-, -
+LOG: global1:  a-
 LOG: global2:  -  
 
 LOG: global1:  |
-LOG: global2:  [object global]|  
+LOG: global2:  -|  
 
-LOG: fromGlobals2:  [object global]-, -
-LOG: global1:  [object global]-
+LOG: fromGlobals2:  |-, -
+LOG: global1:  |-
 LOG: global2:  -  
 
-LOG: global1:  [object global]|
-LOG: global2:  [object global]|
+LOG: global1:  |-|
+LOG: global2:  -|
 ```
 
 ```js
@@ -68,9 +68,9 @@ console.log('\n-- Parameters ---');
 //  all variables used inside this function's body are declared as parameters
 //  the variables get their value from arguments when the function is called
 
-function usesParameters(param1, param2) {
+const usesParameters = (param1, param2) => {
   return `${param1}, ${param2}`;
-}
+};
 
 const fromParams1 = usesParameters('hi', 'bye');
 console.log('fromParams1:', fromParams1);
@@ -83,11 +83,11 @@ console.log('\n-- Local Variables ---');
 //  all variables used inside this function's body are declared locally
 //  the variables get their value from a local assignmnet
 
-function usesLocals() {
+const usesLocals = () => {
   const local1 = 'town';
   const local2 = 'ship';
   return `${local1}, ${local2}`;
-}
+};
 
 const fromLocals1 = usesLocals();
 console.log('fromLocals1:', fromLocals1);
@@ -100,11 +100,11 @@ console.log('\n-- Global Variables ---');
 //  all variables used inside this function's body are declared globally
 //  the variables get their value from local and global assignments (confusing!)
 
-function usesGlobals() {
-  global1 = `${global}-`;
+const usesGlobals = () => {
+  global1 = `${global1}-`;
   global2 = '-'
   return `${global1}, ${global2}`;
-}
+};
 
 let global1 = 'a';
 let global2 = 'b';
@@ -115,7 +115,7 @@ console.log('global1:', global1);
 console.log('global2:', global2, '\n');
 
 global1 = '|';
-global2 = `${global}|`;
+global2 = `${global2}|`;
 
 console.log('global1:', global1);
 console.log('global2:', global2, '\n');
@@ -126,8 +126,8 @@ console.log('global1:', global1);
 console.log('global2:', global2, '\n');
 
 
-global1 = `${global}|`;
-global2 = `${global}|`;
+global1 = `${global1}|`;
+global2 = `${global2}|`;
 
 console.log('global1:', global1);
 console.log('global2:', global2);
@@ -161,10 +161,10 @@ UNCAUGHT: ReferenceError: _ is not defined
 ```js
 'use strict';
 
-function funk(parameter) {
+const funk = (parameter) => {
   const local = `funky`;
   return `${local} ${parameter}`;
-}
+};
 
 const funkReturn1 = funk('hello');
 const funk1 = funkReturn1 === _;
@@ -180,10 +180,10 @@ console.assert(funk3, 'Test 3: funk');
 
 
 
-function jazz(parameter) {
+const jazz = (parameter) => {
   const local = `jazzy`;
   return `${local} ${parameter}`;
-}
+};
 
 const jazzReturn1 = jazz('hello');
 const jazz1 = jazzReturn1 === _;
@@ -237,10 +237,10 @@ UNCAUGHT: ReferenceError: _ is not defined
 
 let global = '';
 
-function funk(parameter) {
+const funk = (parameter) => {
   global = `${global}funky`;
   return `${global} ${parameter}`;
-}
+};
 
 const funkReturn1 = funk('hello');
 const funk1 = funkReturn1 === _;
@@ -290,10 +290,10 @@ UNCAUGHT: ReferenceError: _ is not defined
 
 let global = '<3';
 
-function jazz(parameter) {
+const jazz = (parameter) => {
   global = `${global} jazzy`;
   return `${global} ${parameter}`;
-}
+};
 
 const jazzReturn1 = jazz('hello');
 const jazz1 = jazzReturn1 === _;
@@ -317,15 +317,15 @@ console.assert(jazz3, 'Test 3: jazz');
 
 ---
 
-## /5-local-global.js 
+## /4-local-global.js 
 
 > incomplete 
 >
-> [review source](../../../exercises/05-functions-101/2-local-param-global/5-local-global.js)
+> [review source](../../../exercises/05-functions-101/2-local-param-global/4-local-global.js)
 
 ```txt
 UNCAUGHT: ReferenceError: _ is not defined
-    at Object.<anonymous> (  ...  /exercises/05-functions-101/2-local-param-global/5-local-global.js:12:35)
+    at Object.<anonymous> (  ...  /exercises/05-functions-101/2-local-param-global/4-local-global.js:12:35)
     at Module._compile (internal/modules/cjs/loader.js:1200:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1220:10)
     at Module.load (internal/modules/cjs/loader.js:1049:32)
@@ -342,11 +342,11 @@ UNCAUGHT: ReferenceError: _ is not defined
 
 let global = 'awesome';
 
-function funk() {
+const funk = () => {
   const local = 'funky'
   global = `#${global}`;
   return `${local} ${global}`;
-}
+};
 
 const funkReturn1 = funk();
 const funkTest1 = funkReturn1 === _;
@@ -390,15 +390,15 @@ console.assert(globalTest6, 'Test 9: global');
 
 ---
 
-## /6-local-global.js 
+## /5-local-global.js 
 
 > incomplete 
 >
-> [review source](../../../exercises/05-functions-101/2-local-param-global/6-local-global.js)
+> [review source](../../../exercises/05-functions-101/2-local-param-global/5-local-global.js)
 
 ```txt
 UNCAUGHT: ReferenceError: _ is not defined
-    at Object.<anonymous> (  ...  /exercises/05-functions-101/2-local-param-global/6-local-global.js:12:35)
+    at Object.<anonymous> (  ...  /exercises/05-functions-101/2-local-param-global/5-local-global.js:12:35)
     at Module._compile (internal/modules/cjs/loader.js:1200:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1220:10)
     at Module.load (internal/modules/cjs/loader.js:1049:32)
@@ -415,11 +415,11 @@ UNCAUGHT: ReferenceError: _ is not defined
 
 let global = 'turtle';
 
-function jazz() {
+const jazz = () => {
   const local = 'jazzy'
   global = `${global}!`;
   return `${global} ${local}`;
-}
+};
 
 const jazzReturn1 = jazz();
 const jazzTest1 = jazzReturn1 === _;
@@ -463,15 +463,15 @@ console.assert(globalTest6, 'Test 9: global');
 
 ---
 
-## /7-parameter-local-global.js 
+## /6-parameter-local-global.js 
 
 > incomplete 
 >
-> [review source](../../../exercises/05-functions-101/2-local-param-global/7-parameter-local-global.js)
+> [review source](../../../exercises/05-functions-101/2-local-param-global/6-parameter-local-global.js)
 
 ```txt
 UNCAUGHT: ReferenceError: _ is not defined
-    at Object.<anonymous> (  ...  /exercises/05-functions-101/2-local-param-global/7-parameter-local-global.js:11:32)
+    at Object.<anonymous> (  ...  /exercises/05-functions-101/2-local-param-global/6-parameter-local-global.js:11:32)
     at Module._compile (internal/modules/cjs/loader.js:1200:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1220:10)
     at Module.load (internal/modules/cjs/loader.js:1049:32)
@@ -488,11 +488,11 @@ UNCAUGHT: ReferenceError: _ is not defined
 
 let global = '.';
 
-function funk(parameter) {
+const funk = (parameter) => {
   const local = `funky ${global}`;
   global = `${global} ${global}`;
   return `${parameter} ${local} ${global}`;
-}
+};
 
 const globalTest1 = global === _;
 console.assert(globalTest1, 'Test 1: global');
@@ -527,15 +527,15 @@ console.assert(globalTest5, 'Test 7: global');
 
 ---
 
-## /8-prameter-local-global.js 
+## /7-prameter-local-global.js 
 
 > incomplete 
 >
-> [review source](../../../exercises/05-functions-101/2-local-param-global/8-prameter-local-global.js)
+> [review source](../../../exercises/05-functions-101/2-local-param-global/7-prameter-local-global.js)
 
 ```txt
 UNCAUGHT: ReferenceError: _ is not defined
-    at Object.<anonymous> (  ...  /exercises/05-functions-101/2-local-param-global/8-prameter-local-global.js:11:32)
+    at Object.<anonymous> (  ...  /exercises/05-functions-101/2-local-param-global/7-prameter-local-global.js:11:32)
     at Module._compile (internal/modules/cjs/loader.js:1200:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1220:10)
     at Module.load (internal/modules/cjs/loader.js:1049:32)
@@ -552,11 +552,11 @@ UNCAUGHT: ReferenceError: _ is not defined
 
 let global = '.';
 
-function jazz(parameter) {
+const jazz = (parameter) => {
   const local = `jazzy ${global}`;
   global = `#${global}`;
   return `${parameter} ${local} ${global}`;
-}
+};
 
 const globalTest1 = global === _;
 console.assert(globalTest1, 'Test 1: global');
@@ -615,29 +615,33 @@ console.assert(globalTest5, 'Test 7: global');
 
 // which of these are pure functions?
 
-function a() {
+const a = () => {
   return x + y;
-}
+};
 
-function b(y) {
+const b = (y) => {
   result = x + y;
   return result;
-}
+};
 
-function c(y, x) {
+const c = (y, x) => {
   const m = y - x
   return x + m;
-}
+};
 
-function d(x, y) {
+const d = (x, y) => {
   const a = 'hi';
   return x + y + z;
-}
+};
 
-function e(x, y) {
+const e = (x, y) => {
   p += z;
   return z + y;
-}
+};
+
+const f = (p) => {
+  return p * 2;
+};
 
 ```
 
