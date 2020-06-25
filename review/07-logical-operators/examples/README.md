@@ -1,14 +1,15 @@
-# undefined 
+# Debuggercises 
 
-> 6/19/2020, 12:47:28 AM 
+> 6/24/2020, 5:04:07 PM 
 
 ## [exercises](../../README.md)/[07-logical-operators](../README.md)/examples 
 
 - [/0-truthiness.js](#0-truthinessjs)  
-- [/and.js](#andjs)  
-- [/not.js](#notjs)  
-- [/or.js](#orjs)  
-- [/ternary.js](#ternaryjs)  
+- [/1-or.js](#1-orjs)  
+- [/2-and.js](#2-andjs)  
+- [/3-ternary.js](#3-ternaryjs)  
+- [/4-not.js](#4-notjs)  
+- [/5-short-circuiting.js](#5-short-circuitingjs)  
 ---
 
 ## /0-truthiness.js 
@@ -38,7 +39,7 @@ LOG: truthy  number  -1
   Does a value cast to true or to false?
 */
 
-function classify(x) {
+const classify = (x) => {
   const castToBoolean = Boolean(x);
   const isTrue = castToBoolean === true;
   return isTrue ? 'truthy' : 'falsy';
@@ -93,11 +94,72 @@ console.log(truthiness9, typeof value9, value9);
 
 ---
 
-## /and.js 
+## /1-or.js 
 
 >  
 >
-> [review source](../../../exercises/07-logical-operators/examples/and.js)
+> [review source](../../../exercises/07-logical-operators/examples/1-or.js)
+
+```txt
+LOG: 1  number  0
+LOG: 2  number  1
+LOG: 3  number  1
+LOG: 4  number  1
+LOG: 5  string  asdf
+LOG: 6  string  asdf
+LOG: 7  boolean  true
+LOG: 8  undefined  undefined
+LOG: 9  string  poiu
+```
+
+```js
+'use strict';
+
+/* ||
+  the or operator does not evaluate to true or false!
+  it returns the left value or the right value
+  - if the left is truthy, it returns the left value
+  - if the left is falsy, it returns the right value
+*/
+
+const or1 = 0 || 0;
+console.log(1, typeof or1, or1);
+
+const or2 = 1 || 0;
+console.log(2, typeof or2, or2);
+
+const or3 = 0 || 1;
+console.log(3, typeof or3, or3);
+
+const or4 = 1 || 1;
+console.log(4, typeof or4, or4);
+
+const or5 = '' || 'asdf';
+console.log(5, typeof or5, or5);
+
+const or6 = 'asdf' || '';
+console.log(6, typeof or6, or6);
+
+const or7 = true || false;
+console.log(7, typeof or7, or7);
+
+const or8 = NaN || undefined;
+console.log(8, typeof or8, or8);
+
+const or9 = 'poiu' || 'asdf';
+console.log(9, typeof or9, or9);
+
+```
+
+[TOP](#debuggercises)
+
+---
+
+## /2-and.js 
+
+>  
+>
+> [review source](../../../exercises/07-logical-operators/examples/2-and.js)
 
 ```txt
 LOG: 1  number  0
@@ -119,6 +181,7 @@ LOG: 9  string  asdf
   it returns the left value or the right value
   - if the left is falsy, it returns the left value
   - if the left is truthy, it returns the right value
+  https://javascript.info/logical-operators
 */
 
 const and1 = 0 && 0;
@@ -145,7 +208,7 @@ console.log(7, typeof and7, and7);
 const and8 = NaN && undefined;
 console.log(8, typeof and8, and8);
 
-const and9 = Infinity && 'asdf';
+const and9 = 'poiu' && 'asdf';
 console.log(9, typeof and9, and9);
 
 ```
@@ -154,11 +217,73 @@ console.log(9, typeof and9, and9);
 
 ---
 
-## /not.js 
+## /3-ternary.js 
 
 >  
 >
-> [review source](../../../exercises/07-logical-operators/examples/not.js)
+> [review source](../../../exercises/07-logical-operators/examples/3-ternary.js)
+
+```txt
+LOG: 1  A
+LOG: 2  A
+LOG: 3  A
+LOG: 4  B
+LOG: 5  B
+LOG: 6  B
+LOG: 7  B
+LOG: 8  B
+LOG: 9  B
+```
+
+```js
+'use strict';
+
+/* the Ternary Operator (or Conditional Operator)
+
+it checks the truthiness of the condition
+  - returns the first value if the condition is truthy
+  - returns the second value if the condition is falsy
+*/
+
+
+const ternary1 = 1 ? 'A' : 'B';
+console.log(1, ternary1);
+
+const ternary2 = 'non-empty strings' ? 'A' : 'B';
+console.log(2, ternary2);
+
+const ternary3 = true ? 'A' : 'B';
+console.log(3, ternary3);
+
+const ternary4 = undefined ? 'A' : 'B';
+console.log(4, ternary4);
+
+const ternary5 = null ? 'A' : 'B';
+console.log(5, ternary5);
+
+const ternary6 = false ? 'A' : 'B';
+console.log(6, ternary6);
+
+const ternary7 = 0 ? 'A' : 'B';
+console.log(7, ternary7);
+
+const ternary8 = '' ? 'A' : 'B';
+console.log(8, ternary8);
+
+const ternary9 = NaN ? 'A' : 'B';
+console.log(9, ternary9);
+
+```
+
+[TOP](#debuggercises)
+
+---
+
+## /4-not.js 
+
+>  
+>
+> [review source](../../../exercises/07-logical-operators/examples/4-not.js)
 
 ```txt
 LOG: 1  boolean  true
@@ -214,122 +339,100 @@ console.log(9, typeof not9, not9);
 
 ---
 
-## /or.js 
+## /5-short-circuiting.js 
 
 >  
 >
-> [review source](../../../exercises/07-logical-operators/examples/or.js)
+> [review source](../../../exercises/07-logical-operators/examples/5-short-circuiting.js)
 
 ```txt
-LOG: 1  number  0
-LOG: 2  number  1
-LOG: 3  number  1
-LOG: 4  number  1
-LOG: 5  string  asdf
-LOG: 6  string  asdf
-LOG: 7  boolean  true
-LOG: 8  undefined  undefined
-LOG: 9  number  Infinity
+LOG: --- a || b ---
+LOG: true
+LOG: or1:  boolean  true
+LOG: false
+LOG: true
+LOG: or2:  boolean  true
+LOG: true
+LOG: or3:  boolean  true
+LOG: false
+LOG: false
+LOG: or4:  boolean  false
+LOG: --- a && b ---
+LOG: true
+LOG: true
+LOG: and1:  boolean  true
+LOG: false
+LOG: and2:  boolean  false
+LOG: true
+LOG: false
+LOG: and3:  boolean  false
+LOG: false
+LOG: and4:  boolean  false
+LOG: --- a ? b : c ---
+LOG: true
+LOG: b
+LOG: ternary1:  string  b
+LOG: false
+LOG: c
+LOG: ternary2:  string  c
 ```
 
 ```js
-'use strict';
+/* Short-Circuiting
 
-/* ||
-  the or operator does not evaluate to true or false!
-  it returns the left value or the right value
-  - if the left is truthy, it returns the left value
-  - if the left is falsy, it returns the right value
-*/
+  This is a fun and tricky thing about &&, ||, ? :
+    have fun!
 
-const or1 = 0 || 0;
-console.log(1, typeof or1, or1);
-
-const or2 = 1 || 0;
-console.log(2, typeof or2, or2);
-
-const or3 = 0 || 1;
-console.log(3, typeof or3, or3);
-
-const or4 = 1 || 1;
-console.log(4, typeof or4, or4);
-
-const or5 = '' || 'asdf';
-console.log(5, typeof or5, or5);
-
-const or6 = 'asdf' || '';
-console.log(6, typeof or6, or6);
-
-const or7 = true || false;
-console.log(7, typeof or7, or7);
-
-const or8 = NaN || undefined;
-console.log(8, typeof or8, or8);
-
-const or9 = Infinity || 'asdf';
-console.log(9, typeof or9, or9);
-
-```
-
-[TOP](#debuggercises)
-
----
-
-## /ternary.js 
-
->  
->
-> [review source](../../../exercises/07-logical-operators/examples/ternary.js)
-
-```txt
-LOG: 1  A
-LOG: 2  A
-LOG: 3  A
-LOG: 4  B
-LOG: 5  B
-LOG: 6  B
-LOG: 7  B
-LOG: 8  B
-LOG: 9  B
-```
-
-```js
-'use strict';
-
-/* the Ternary Operator (or Conditional Operator)
-
-it checks the truthiness of the condition
-  - returns the first value if the condition is truthy
-  - returns the second value if the condition is falsy
+  Beau teaches JavaScript: https://www.youtube.com/watch?v=r7v6EIiHfVA
+  Steve Griffith: https://www.youtube.com/watch?v=MR0ohAODlOI
+  https://javascript.info/logical-operators
+    search (ctr-f) for "Short-circuit"
 */
 
 
-const ternary1 = 1 ? 'A' : 'B';
-console.log(1, ternary1);
+const logReturn = (arg) => {
+  console.log(arg);
+  return arg;
+};
 
-const ternary2 = 'non-empty strings' ? 'A' : 'B';
-console.log(2, ternary2);
+console.log('--- a || b ---');
 
-const ternary3 = true ? 'A' : 'B';
-console.log(3, ternary3);
+const or1 = logReturn(true) || logReturn(true);
+console.log('or1:', typeof or1, or1);
 
-const ternary4 = undefined ? 'A' : 'B';
-console.log(4, ternary4);
+const or2 = logReturn(false) || logReturn(true);
+console.log('or2:', typeof or2, or2);
 
-const ternary5 = null ? 'A' : 'B';
-console.log(5, ternary5);
+const or3 = logReturn(true) || logReturn(false);
+console.log('or3:', typeof or3, or3);
 
-const ternary6 = false ? 'A' : 'B';
-console.log(6, ternary6);
+const or4 = logReturn(false) || logReturn(false);
+console.log('or4:', typeof or4, or4);
 
-const ternary7 = 0 ? 'A' : 'B';
-console.log(7, ternary7);
 
-const ternary8 = '' ? 'A' : 'B';
-console.log(8, ternary8);
+console.log('--- a && b ---');
 
-const ternary9 = NaN ? 'A' : 'B';
-console.log(9, ternary9);
+const and1 = logReturn(true) && logReturn(true);
+console.log('and1:', typeof and1, and1);
+
+const and2 = logReturn(false) && logReturn(true);
+console.log('and2:', typeof and2, and2);
+
+const and3 = logReturn(true) && logReturn(false);
+console.log('and3:', typeof and3, and3);
+
+const and4 = logReturn(false) && logReturn(false);
+console.log('and4:', typeof and4, and4);
+
+
+console.log('--- a ? b : c ---');
+
+const ternary1 = logReturn(true) ? logReturn('b') : logReturn('c');
+console.log('ternary1:', typeof ternary1, ternary1);
+
+const ternary2 = logReturn(false) ? logReturn('b') : logReturn('c');
+console.log('ternary2:', typeof ternary2, ternary2);
+
 
 ```
 

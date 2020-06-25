@@ -1,6 +1,6 @@
-# undefined 
+# Debuggercises 
 
-> 6/19/2020, 12:47:28 AM 
+> 6/24/2020, 5:04:07 PM 
 
 ## [exercises](../../README.md)/[06-explicit-coercion](../README.md)/exercises 
 
@@ -32,13 +32,13 @@ UNCAUGHT: ReferenceError: _ is not defined
 ```js
 'use strict';
 
-function mystery(x) {
+const mystery = (x) => {
   if (typeof x === 'boolean') { throw new TypeError('x cannot be a boolean'); }
 
   const booleaned = Boolean(x);
   const numbered = Number(booleaned);
   return numbered;
-}
+};
 
 // write the expected return value
 
@@ -108,13 +108,13 @@ UNCAUGHT: ReferenceError: _ is not defined
 ```js
 'use strict';
 
-function mystery(x) {
+const mystery = (x) => {
   if (typeof x === 'string') { throw new TypeError('x cannot be a string'); }
 
   const stringed = String(x);
   const numbered = Number(stringed);
   return numbered;
-}
+};
 
 // find an argument to get the expected return value
 
@@ -187,9 +187,9 @@ console.assert(Object.is(_9_actual, _9_expect), 'Test 9');
    Number
    ===
 */
-function mystery(x, y) {
+const mystery = (x, y) => {
 
-}
+};
 
 // all of the test cases are correct
 
