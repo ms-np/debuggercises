@@ -17,28 +17,28 @@
 
 const a = () => {
   return x + y;
-};
+}; // not pure?
 
 const b = (y) => {
   result = x + y;
   return result;
-};
+}; // not pure?
 
 const c = (y, x) => {
   const m = y - x
   return x + m;
-};
+}; // pure?
 
 const d = (x, y) => {
   const a = 'hi';
   return x + y + z;
-};
+}; // not pure?
 
 const e = (x, y) => {
   p += z;
   return z + y;
-};
+}; // not pure?
 
 const f = (p) => {
   return p * 2;
-};
+}; // pure?
