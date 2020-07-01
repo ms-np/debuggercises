@@ -6,7 +6,10 @@
    ===
 */
 const mystery = (x, y) => {
-
+  const numbered_1 = Number(x);
+  const numbered_2 = Number(y);
+  const strictEquality = numbered_1 === numbered_2; // const strictEquality = Number(x) === Number(y);
+  return strictEquality;
 };
 
 // all of the test cases are correct
